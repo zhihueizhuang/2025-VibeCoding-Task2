@@ -31,6 +31,8 @@
       color: var(--color-text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
       line-height: 1.6;
+      /* 安全保險，但真正解決是下面 nav 的 RWD */
+      overflow-x: hidden;
     }
 
     body {
@@ -369,6 +371,21 @@
     /* CSS:CONTACT-END */
 
     /* CSS:RWD-START */
+    /* 小螢幕（含 320px）：導覽列改成上下排列，避免水平溢出 */
+    @media (max-width: 480px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .nav-menu {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+    }
+
     @media (min-width: 768px) {
       .nav {
         padding: 0.75rem 2rem;
